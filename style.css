@@ -1,0 +1,424 @@
+/* Основные переменные в стиле Telegram */
+:root {
+    --tg-theme-bg-color: #17212b;
+    --tg-theme-secondary-bg-color: #232e3c;
+    --tg-theme-text-color: #f5f5f5;
+    --tg-theme-hint-color: #708499;
+    --tg-theme-link-color: #6ab7ff;
+    --tg-theme-button-color: #5288c1;
+    --tg-theme-button-text-color: #ffffff;
+    --tg-theme-header-bg-color: #17212b;
+    --tg-theme-accent-text-color: #6ab7ff;
+    --tg-theme-section-bg-color: #232e3c;
+    --tg-theme-section-header-text-color: #6ab7ff;
+    --tg-theme-subtitle-text-color: #708499;
+    --tg-theme-destructive-text-color: #ec3942;
+    
+    /* Дополнительные цвета */
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Основные стили */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Заголовок */
+#header {
+    background: linear-gradient(135deg, var(--tg-theme-header-bg-color), var(--tg-theme-secondary-bg-color));
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--tg-theme-secondary-bg-color);
+    box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+#header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--tg-theme-accent-text-color);
+}
+
+#header p {
+    color: var(--tg-theme-hint-color);
+    font-size: 0.9rem;
+}
+
+/* Контролы */
+#controls {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--tg-theme-bg-color);
+}
+
+/* Кнопка в стиле Telegram */
+.telegram-button {
+    background: linear-gradient(135deg, var(--tg-theme-button-color), #4a7ba7);
+    color: var(--tg-theme-button-text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(82, 136, 193, 0.3);
+    min-width: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.telegram-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(82, 136, 193, 0.4);
+}
+
+.telegram-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(82, 136, 193, 0.3);
+}
+
+.telegram-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Анимация загрузки */
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    color: var(--tg-theme-hint-color);
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--tg-theme-secondary-bg-color);
+    border-top: 2px solid var(--tg-theme-button-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Контейнер карты */
+#map-container {
+    flex: 1;
+    min-height: 400px;
+    margin: 0 20px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    border: 1px solid var(--tg-theme-secondary-bg-color);
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+}
+
+/* Секция предложений */
+#offers-section {
+    background-color: var(--tg-theme-section-bg-color);
+    margin: 20px;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+#offers-section h2 {
+    color: var(--tg-theme-section-header-text-color);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* Карточки предложений */
+#offers-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.offer-card {
+    background-color: var(--tg-theme-bg-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 3px 15px var(--shadow-color);
+    transition: var(--transition);
+    cursor: pointer;
+    border: 1px solid var(--tg-theme-secondary-bg-color);
+}
+
+.offer-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px var(--shadow-color);
+}
+
+.offer-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.offer-content {
+    padding: 15px;
+}
+
+.offer-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--tg-theme-text-color);
+}
+
+.offer-category {
+    display: inline-block;
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.offer-description {
+    color: var(--tg-theme-hint-color);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.offer-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.85rem;
+}
+
+.offer-address, .offer-phone, .offer-distance {
+    color: var(--tg-theme-subtitle-text-color);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.offer-distance {
+    color: var(--tg-theme-accent-text-color);
+    font-weight: 600;
+}
+
+.offer-telegram {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.offer-telegram:hover {
+    background-color: #4a7ba7;
+    transform: translateY(-1px);
+}
+
+/* Модальное окно */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: var(--tg-theme-bg-color);
+    border-radius: var(--border-radius);
+    max-width: 500px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 40px var(--shadow-color);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--tg-theme-hint-color);
+    z-index: 1001;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.close:hover {
+    background-color: var(--tg-theme-secondary-bg-color);
+    color: var(--tg-theme-text-color);
+}
+
+/* Футер */
+#footer {
+    background-color: var(--tg-theme-header-bg-color);
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid var(--tg-theme-secondary-bg-color);
+    margin-top: auto;
+}
+
+#footer p {
+    color: var(--tg-theme-hint-color);
+    font-size: 0.8rem;
+}
+
+/* Утилитарные классы */
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    #header {
+        padding: 15px;
+    }
+    
+    #header h1 {
+        font-size: 1.5rem;
+    }
+    
+    #controls {
+        padding: 15px;
+    }
+    
+    .telegram-button {
+        min-width: 200px;
+        padding: 14px 24px;
+        font-size: 0.9rem;
+    }
+    
+    #map-container {
+        margin: 0 15px;
+        min-height: 300px;
+    }
+    
+    #map {
+        min-height: 300px;
+    }
+    
+    #offers-section {
+        margin: 15px;
+        padding: 15px;
+    }
+    
+    #offers-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .offer-card {
+        margin-bottom: 0;
+    }
+    
+    .modal-content {
+        margin: 10px;
+        max-height: 90vh;
+    }
+    
+    #footer {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #header h1 {
+        font-size: 1.3rem;
+    }
+    
+    #header p {
+        font-size: 0.8rem;
+    }
+    
+    .telegram-button {
+        min-width: 180px;
+        padding: 12px 20px;
+        font-size: 0.85rem;
+    }
+    
+    #map-container {
+        margin: 0 10px;
+        min-height: 250px;
+    }
+    
+    #map {
+        min-height: 250px;
+    }
+    
+    #offers-section {
+        margin: 10px;
+        padding: 12px;
+    }
+    
+    .offer-content {
+        padding: 12px;
+    }
+    
+    .offer-image {
+        height: 120px;
+    }
+}
+

@@ -1,0 +1,32 @@
+{
+  "name": "telegram-mini-app-geolocation",
+  "version": "1.0.0",
+  "description": "Telegram Mini App с геолокацией и картой для поиска предложений поблизости",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "vercel dev",
+    "build": "echo 'Build completed'",
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "telegram",
+    "mini-app",
+    "geolocation",
+    "nodejs",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT"
+}
