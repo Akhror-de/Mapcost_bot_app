@@ -16,7 +16,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: ['https://mapcost-bot.vercel.app', 'https://your-bot-name.vercel.app'], // Разрешаем доступ только с домена Vercel
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204
+}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -196,9 +201,9 @@ app.use((error, req, res, next) => {
  */
 app.listen(PORT, () => {
     console.log(`🚀 Сервер запущен на порту ${PORT}`);
-    console.log(`📱 Mini App: http://localhost:${PORT}`);
-    console.log(`🔧 API: http://localhost:${PORT}/api/offers`);
-    console.log(`📊 Статус: http://localhost:${PORT}/api/status`);
+    console.log(`📱 Mini App: https://mapcost-bot.vercel.app`);
+    console.log(`🔧 API: https://mapcost-bot.vercel.app/api/offers`);
+    console.log(`📊 Статус: https://mapcost-bot.vercel.app/api/status`);
 });
 
 module.exports = app;
